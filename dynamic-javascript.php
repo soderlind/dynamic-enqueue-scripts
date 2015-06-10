@@ -1,4 +1,8 @@
 <?php
+//prevent direct access
+if ( ! defined( 'ABSPATH' ) ) {
+	die();
+}
 header( "Content-type: application/javascript; charset: UTF-8" );
 
 //get message from options, settings etc
