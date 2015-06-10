@@ -9,7 +9,7 @@ Author URI: http://soderlind.no
 GitHub Plugin URI: soderlind/dynamic-enqueue-scripts
 */
 
-define('DYNAMICSCRIPTVERSION', '0.1.0');
+define('DYNAMICSCRIPTVERSION', '0.1.1');
 
 function dynamic_enqueue_scripts() {
 
