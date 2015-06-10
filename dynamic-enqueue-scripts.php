@@ -12,6 +12,7 @@ GitHub Plugin URI: soderlind/dynamic-enqueue-scripts
 define('DYNAMICSCRIPTVERSION', '0.1.0');
 
 function dynamic_enqueue_scripts() {
+
     wp_enqueue_style(
         'dynamic-css', //handle
         admin_url( 'admin-ajax.php' ) . '?action=dynamic_css_action&wpnonce=' . wp_create_nonce( 'dynamic-css-nonce' ), // src
@@ -22,7 +23,7 @@ function dynamic_enqueue_scripts() {
     wp_enqueue_script(
         'dynamic-javascript', //handle
         admin_url( 'admin-ajax.php' ) . '?action=dynamic_javascript_action&wpnonce=' . wp_create_nonce( 'dynamic-javascript-nonce' ), // src
-        array('jquery'), // dependencies
+        array('jquery'), // dependencies, I use jquery in dynamic-javascript.php
         DYNAMICSCRIPTVERSION // version number
     );
 
@@ -39,7 +40,7 @@ function dynamic_css_loader() {
          *       Warning: require(http://domain/path/dynamic-javascript.php): failed to open stream: no suitable wrapper could be found
          *       Fatal error: require(): Failed opening required 'http://domain/path/dynamic-javascript.php'
          */
-        require dirname( __FILE__ ) . '/dynamic-css.php'; // in dynamic_css_loader, write CSS using echo, printf etc
+        require_once dirname( __FILE__ ) . '/dynamic-css.php';
     }
     exit;
 }
@@ -55,7 +56,7 @@ function dynamic_javascript_loader() {
          *       Warning: require(http://domain/path/dynamic-javascript.php): failed to open stream: no suitable wrapper could be found
          *       Fatal error: require(): Failed opening required 'http://domain/path/dynamic-javascript.php'
          */
-    	require dirname( __FILE__ ) . '/dynamic-javascript.php';
+    	require_once dirname( __FILE__ ) . '/dynamic-javascript.php';
 	}
 	exit;
 }
