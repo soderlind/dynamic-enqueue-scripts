@@ -35,7 +35,7 @@ add_action( 'wp_ajax_nopriv_dynamic_css_action', 'dynamic_css_loader' );
 
 ```
 
-## [Dynamic CSS](https://github.com/soderlind/dynamic-enqueue-scripts/blob/master/dynamic-css.php)
+## Example: Simple [dynamic CSS](https://github.com/soderlind/dynamic-enqueue-scripts/blob/master/dynamic-css.php)
 
 ```php
 <?php
